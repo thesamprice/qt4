@@ -489,7 +489,7 @@ QScriptDebuggerConsoleCommandJob *QScriptDebuggerConsole::consumeInput(
     d->input += QLatin1Char('\n');
     QScriptSyntaxCheckResult check = QScriptEngine::checkSyntax(d->input);
     if (check.state() == QScriptSyntaxCheckResult::Intermediate)
-        return false;
+        return nullptr;
     d->input.chop(1); // remove the last \n
     cmd = QString();
     cmd.append(d->commandPrefix);
